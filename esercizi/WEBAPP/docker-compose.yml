@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  web:
+    image: my-webapp:v5
+    container_name: tomee_container
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db
+      - TOMEE_OPTS=-Dfile.encoding=UTF-8
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: TAYM
+      MYSQL_DATABASE: tennis
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
