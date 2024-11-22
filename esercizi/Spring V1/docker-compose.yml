@@ -1,0 +1,31 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: TAYM
+      MYSQL_DATABASE: demodb
+    ports:
+      - "3306:3306"
+    networks:
+      - mynetwork
+
+  app:
+    image: myspringweb
+    build:
+      context: .
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/demodb  # Utilisation du nom de service 'mysql'
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: TAYM
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
+
