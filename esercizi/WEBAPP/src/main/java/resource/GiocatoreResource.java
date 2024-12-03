@@ -18,7 +18,7 @@ public class GiocatoreResource {
 
     public static void main(String[] args) throws Exception {
        JoueurService joueurService=new JoueurService();
-        joueurService.getGiocatore(2);
+        joueurService.getGiocatore(5);
         List<Joueur> giocatori = joueurService.lista();
         for(Joueur j :giocatori){
             System.out.println(j.toString());

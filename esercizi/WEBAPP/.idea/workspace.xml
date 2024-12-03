@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b882a39-253c-478a-bf32-f0a536edce41" name="Changes" comment="30/10/2024">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring V1/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring V1/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/WEBAPP.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/WEBAPP.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/WEBAPP/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/resource/GiocatoreResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/resource/GiocatoreResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resource/GiocatoreResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/resource/GiocatoreResource.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GiocatoreResource.executor": "Debug",
+    "Application.GiocatoreResource.executor": "Run",
     "Application.ProgramMain.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "JUnit.All in WEBAPP (1).executor": "Debug",
@@ -61,7 +58,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/A.Toumi/Documents/GitHub/Node.js",
+    "last_opened_file_path": "C:/Users/A.Toumi/Documents/core",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
@@ -79,7 +76,7 @@
       <recent name="resource" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ProgramMain">
+  <component name="RunManager" selected="Application.GiocatoreResource">
     <configuration name="GiocatoreResource" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="resource.GiocatoreResource" />
       <module name="WEBAPP" />
@@ -132,9 +129,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GiocatoreResource" />
         <item itemvalue="Application.ProgramMain" />
         <item itemvalue="JUnit.All in WEBAPP (3)" />
-        <item itemvalue="Application.GiocatoreResource" />
         <item itemvalue="JUnit.All in WEBAPP (2)" />
         <item itemvalue="JUnit.All in WEBAPP (1)" />
       </list>

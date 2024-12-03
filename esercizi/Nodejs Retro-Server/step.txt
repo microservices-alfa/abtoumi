@@ -1,0 +1,19 @@
+npm init
+npm install express --save
+npm install -g nodemon
+
+run :>  nodemon server.js
+
+npm install -g sequelize-cli
+
+npm  install --save sequelize@3.30.4
+npm install mysql --save
+sequelize init
+
+sequelize model:create --attributes "email:string username:string password:string bio:string isadmin:boolean" --name User
+
+sequelize model:create --attributes "idUsers:integer title:string content:string attachement:string likes:integer" --name messages
+
+pour changer pswrd MAMP
+
+/Applications/MAMP/Library/bin/mysqladmin -u root -p password
