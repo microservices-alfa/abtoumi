@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier le Client</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Modificare le informazioni del cliente</h1>
+
+    <form action="#" th:action="@{/clients/update/{tel}(tel=${client.tel})}" th:object="${client}" method="post">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" th:field="*{nome}" class="form-control" placeholder="Nom du client" required>
+        </div>
+        <div class="form-group">
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" th:field="*{cognome}" class="form-control" placeholder="Cognome du client" required>
+        </div>
+        <div class="form-group">
+            <label for="tel">Téléphone</label>
+            <input type="text" id="tel" th:field="*{tel}" class="form-control" placeholder="Numéro de téléphone" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS, jQuery et Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

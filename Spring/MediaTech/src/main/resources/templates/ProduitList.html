@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista dei prodotti</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Lista dei prodotti</h1>
+
+    <!-- Bouton pour ajouter un nouveau Produit -->
+    <div class="text-right mb-3">
+        <a href="/Produits/new" class="btn btn-success">Inserisci Nuovo Prodotto</a>
+    </div>
+
+
+    <!-- Table des clients -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Ref</th>
+            <th>Libel</th>
+            <th>Prezzo</th>
+            <th>Quantità</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Boucle sur la liste des produits et affichage des informations -->
+        <tr th:each="produit : ${produits}">
+            <td th:text="${produit.ref}"></td>
+            <td th:text="${produit.libelle}"></td>
+            <td th:text="${produit.prezzo}"></td>
+            <td th:text="${produit.quantita}"></td>
+            <td>
+                <!-- Boutons Update et Delete -->
+                <a th:href="@{/Produits/edit/{ref}(ref=${produit.ref})}" class="btn btn-warning btn-sm">Update</a>
+
+                <a th:href="@{/Produits/delete/{ref}(ref=${produit.ref})}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS, jQuery et Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

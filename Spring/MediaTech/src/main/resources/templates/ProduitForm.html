@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserisci Nuovo Prodotto</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Inserisci Nuovo prodotto</h1>
+
+    <!-- Formulaire pour ajouter un produit -->
+    <form action="/Produits/save" method="post">
+        <div class="form-group">
+            <label for="ref">ref</label>
+            <input type="text" class="form-control" id="ref" name="ref" required>
+        </div>
+        <div class="form-group">
+            <label for="libelle">libelle</label>
+            <input type="text" class="form-control" id="libelle" name="libelle" required>
+        </div>
+        <div class="form-group">
+            <label for="prezzo">prezzo</label>
+            <input type="Number" class="form-control" id="prezzo" name="prezzo" required>
+        </div>
+        <div class="form-group">
+            <label for="quantita">quantita</label>
+            <input type="Number" class="form-control" id="quantita" name="quantita" required>
+        </div>
+        <button type="submit" class="btn btn-success">Salva Prodotto</button>
+        <a href="/Produits/list" class="btn btn-secondary">Annulla</a>
+    </form>
+</div>
+
+<!-- Bootstrap JS, jQuery e Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

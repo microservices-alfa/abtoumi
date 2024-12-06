@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Clients</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1 class="text-center">Lista dei Clienti</h1>
+
+    <!-- Bouton pour ajouter un nouveau client -->
+    <div class="text-right mb-3">
+        <a href="/clients/new" class="btn btn-success">Inserisci Nuovo Cliente</a>
+    </div>
+
+
+    <!-- Table des clients -->
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Cognome</th>
+            <th>Telefone</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Boucle sur la liste des clients et affichage des informations -->
+        <tr th:each="client : ${clients}">
+            <td th:text="${client.nome}"></td>
+            <td th:text="${client.cognome}"></td>
+            <td th:text="${client.tel}"></td>
+            <td>
+                <!-- Boutons Update et Delete -->
+                <a th:href="@{/clients/edit/{tel}(tel=${client.tel})}" class="btn btn-warning btn-sm">Update</a>
+                <a th:href="@{/clients/delete/{tel}(tel=${client.tel})}" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client ?')">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Bootstrap JS, jQuery et Popper.js -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
