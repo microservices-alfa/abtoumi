@@ -17,9 +17,9 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private String nome;
-    @Column(nullable = false)
+//@Column(nullable = false)
     private String cognome;
     @Column(name = "telefone")
     private String tel;

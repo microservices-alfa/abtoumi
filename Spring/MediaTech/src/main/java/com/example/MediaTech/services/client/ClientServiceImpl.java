@@ -100,8 +100,8 @@ public class ClientServiceImpl implements ClientService {
         // Mapper le client mis à jour en ClientRespostDTO pour la réponse
         Client updatedClient = clientDAO.save(client);
 
-      //  ClientRespostDTO clientRespost = modelMapper.map(updatedClient, ClientRespostDTO.class);
-        ClientRespostDTO clientRespost=new ClientRespostDTO(updatedClient.getNome(),updatedClient.getCognome(),updatedClient.getTel());
+        ClientRespostDTO clientRespost = modelMapper.map(updatedClient, ClientRespostDTO.class);
+        //ClientRespostDTO clientRespost=new ClientRespostDTO(updatedClient.getNome(),updatedClient.getCognome(),updatedClient.getTel());
 
         // Vérifier que le clientRequestDTO n'est pas nul et contient des données valides
         if (clientRequestDTO == null || clientRequestDTO.getNome() == null || clientRequestDTO.getCognome() == null) {
