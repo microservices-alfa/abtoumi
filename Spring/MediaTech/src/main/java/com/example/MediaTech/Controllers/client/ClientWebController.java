@@ -19,6 +19,9 @@ public class ClientWebController {
     @Autowired
     private ClientService clientService;
 
+    public ClientWebController(ClientService clientService) {
+    }
+
     // Méthode pour afficher la liste des clients
     @GetMapping("/list")
     public String listClients(Model model) {

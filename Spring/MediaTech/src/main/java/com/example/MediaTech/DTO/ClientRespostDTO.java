@@ -1,14 +1,16 @@
 package com.example.MediaTech.DTO;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.io.Serializable;
 
 @Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientRespostDTO {
+public class ClientRespostDTO implements Serializable {
 
     private String nome;
     private String cognome;

@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @Service
 public class ClientServiceImpl implements ClientService {
 
-    private ClientDAO clientDAO;
-    private ModelMapper modelMapper;
+    private final ClientDAO clientDAO;
+    private final ModelMapper modelMapper;
 
     @Autowired
     public ClientServiceImpl(ModelMapper modelMapper, ClientDAO clientDAO) {
@@ -25,13 +25,10 @@ public class ClientServiceImpl implements ClientService {
         this.clientDAO = clientDAO;
     }
 
-    /***************************************************************************************************/
 
-    /***************************************************************************************************/
     @Override
     public ClientRespostDTO save(ClientRequestDTO clientRequestDTO) {
         // Vérifier que le clientRequestDTO n'est pas nul et contient des données valides
-        System.out.println(clientRequestDTO);
         if (clientRequestDTO == null || clientRequestDTO.getNome() == null || clientRequestDTO.getCognome() == null) {
             throw new NotFoundException("Erreur : le client a des informations manquantes.");
         }
@@ -44,9 +41,7 @@ public class ClientServiceImpl implements ClientService {
         return modelMapper.map(savedClient, ClientRespostDTO.class);
     }
 
-    /*************************************************************************************************/
 
-    /***************************************************************************************************/
 
     @Override
     public ClientRespostDTO findById(Integer id) {
@@ -60,9 +55,6 @@ public class ClientServiceImpl implements ClientService {
     }
 
 
-     /***************************************************************************************************/
-
-    /***************************************************************************************************/
 
     @Override
     public ClientRespostDTO findByNome(String nome) {
@@ -74,9 +66,7 @@ public class ClientServiceImpl implements ClientService {
 
     }
 
-    /***************************************************************************************************/
 
-    /***************************************************************************************************/
     @Override
     public ClientRespostDTO findByTel(String tel) {
         Client client= clientDAO.findByTel(tel);
@@ -86,9 +76,7 @@ public class ClientServiceImpl implements ClientService {
         return modelMapper.map(client, ClientRespostDTO.class);
     }
 
-    /***************************************************************************************************/
 
-    /***************************************************************************************************/
 
         @Override
     public void delete(Integer id) {
@@ -98,9 +86,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
 
-    /***************************************************************************************************/
 
-    /***************************************************************************************************/
 
     @Override
     public ClientRespostDTO update(ClientRequestDTO clientRequestDTO, Integer id) {
@@ -111,14 +97,18 @@ public class ClientServiceImpl implements ClientService {
 
         // Utiliser modelMapper pour mettre à jour les propriétés du client existant
         modelMapper.map(clientRequestDTO, client);  // Cela mettra à jour les propriétés de 'client' avec celles de 'clientRequestDTO'
-
-        // Sauvegarder le client mis à jour dans la base de données
+        // Mapper le client mis à jour en ClientRespostDTO pour la réponse
         Client updatedClient = clientDAO.save(client);
 
-        // Mapper le client mis à jour en ClientRespostDTO pour la réponse
-        ClientRespostDTO clientRespostDTO = modelMapper.map(updatedClient, ClientRespostDTO.class);
+      //  ClientRespostDTO clientRespost = modelMapper.map(updatedClient, ClientRespostDTO.class);
+        ClientRespostDTO clientRespost=new ClientRespostDTO(updatedClient.getNome(),updatedClient.getCognome(),updatedClient.getTel());
 
-        return clientRespostDTO;
+        // Vérifier que le clientRequestDTO n'est pas nul et contient des données valides
+        if (clientRequestDTO == null || clientRequestDTO.getNome() == null || clientRequestDTO.getCognome() == null) {
+            throw new NotFoundException("Erreur : le client a des informations manquantes.");
+        }
+
+        return clientRespost;
     }
 
     @Override
@@ -133,9 +123,8 @@ public class ClientServiceImpl implements ClientService {
         Client updatedClient = clientDAO.save(client);
 
         // Mapper le client mis à jour en ClientRespostDTO pour la réponse
-        ClientRespostDTO clientRespostDTO = modelMapper.map(updatedClient, ClientRespostDTO.class);
 
-        return clientRespostDTO;
+        return modelMapper.map(updatedClient, ClientRespostDTO.class);
     }
 
     @Override
@@ -148,9 +137,7 @@ public class ClientServiceImpl implements ClientService {
         clientDAO.delete(client);
     }
 
-    /***************************************************************************************************/
 
-    /***************************************************************************************************/
 
     @Override
     public List<ClientRespostDTO> findAll() {
